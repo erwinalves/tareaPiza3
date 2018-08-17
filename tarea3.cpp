@@ -12,19 +12,17 @@ int ConvierteANumero(string valor){
 }
 
 bool esNumero(string valor){
-	if(ConvierteANumero(valor)==0){
-		return true;
+	if(valor.length()>1){
+		return false;
 	}
 	else{
-		int aux = atoi(valor.c_str());
-		if(aux==0){
-			return false;
-		}
-		else{
+		if(valor[0]>47 && valor[0]<58){
 			return true;
 		}
+		else{
+			return false;
+		}
 	}
-
 }
 
 void mostrarMatriz(int matriz[][9]){
@@ -37,6 +35,8 @@ void mostrarMatriz(int matriz[][9]){
 }
 
 int main(int argc, char* argv[]){
+
+	//Para ingresar los datos, se ingresa por ejemplo: ./ejecutable "[1;2;3]" "[4;5;6]" "[7;8;9]"
 	int matriz[9][9];
 	for(int i=0;i<9;i++)
 		for(int j=0;j<9;j++)
@@ -51,7 +51,7 @@ int main(int argc, char* argv[]){
 	for(int i=1;i<argc;i++){
 		argumento=argv[i];
 		if (argumento.substr(0,1)=="[" && argumento.substr(6,1)=="]"){
-			if(argumento.substr(2,1)=="," && argumento.substr(4,1)==","){
+			if(argumento.substr(2,1)==";" && argumento.substr(4,1)==";"){
 				pos_i=argumento.substr(1,1);
 				pos_j=argumento.substr(3,1);
 				num=argumento.substr(5,1);
