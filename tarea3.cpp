@@ -34,6 +34,35 @@ void mostrarMatriz(int matriz[][9]){
 	}
 }
 
+bool revisarValorFila(int i, int valor, int matriz[][9]){
+    for(int j=0;j<9;j++){
+        if(matriz[i][j]==valor){
+            return true;
+        }
+    }
+    return false;
+}
+
+bool revisarValorColumna(int j, int valor, int matriz[][9]){
+    for(int i=0;i<9;i++){
+        if(matriz[i][j]==valor){
+            return true;
+        }
+    }
+    return false;
+}
+
+bool revisarSubMatriz(int i, int j, int valor, int matriz[][9]){
+    for(int ii=0;ii<i;ii++){
+        for(int jj=0;jj<9;jj++){
+            if(matriz[ii][jj]==valor){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 int main(int argc, char* argv[]){
 
 	//Para ingresar los datos, se ingresa por ejemplo: ./ejecutable "[1;2;3]" "[4;5;6]" "[7;8;9]"
